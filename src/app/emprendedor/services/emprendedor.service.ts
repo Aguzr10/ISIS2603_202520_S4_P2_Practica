@@ -20,8 +20,7 @@ export class EmprendedorService {
   }
 
   getDetalle(id: number | string): Observable<any> {
-    const url = this.baseUrldetalle.replace('/1/', `/${id}/`);
-    return this.http.get<any>(url);
+    return this.http.get<any>(this.baseUrldetalle);
   }
 
   
