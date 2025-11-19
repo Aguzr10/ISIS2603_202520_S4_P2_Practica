@@ -1,3 +1,7 @@
+ALEJANDRO GUZMÁN ROJAS
+a.guzmanr2@uniandes.edu.co 
+202410186
+
 # ParcialPractico2202520Dsw
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
