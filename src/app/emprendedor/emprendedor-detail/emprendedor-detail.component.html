@@ -1,29 +1,76 @@
-<div *ngIf="emprendedorDetail" style="margin-bottom: 2rem;">
-    <h3>{{ emprendedorDetail.nombre }}</h3>
+<div *ngIf="emprendedorDetail" 
+     style="background: white; 
+            padding: 2rem; 
+            border-radius: 12px; 
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.15);">
 
     <div style="display: flex; gap: 2rem; align-items: flex-start;">
-        
-        <div style="height: 300px;">
+
+
+        <div>
             <img [src]="emprendedorDetail.foto_url"
                  alt="{{ emprendedorDetail.nombre }}"
-                 style="width: 250px; height: auto; border-radius: 8px;">
+                 style="
+                    width: 260px;
+                    height: auto;
+                    border-radius: 12px;
+                 ">
         </div>
 
-        <div style="flex: 1;">
-            <p><strong>Pregrado:</strong> {{ emprendedorDetail.pregrado }}</p>
-            <p><strong>Género:</strong> {{ emprendedorDetail.genero }}</p>
+        
+        <div style="flex: 1; font-size: 1rem;">
+
+
+            <div style="
+                background-color: #0ae98a;
+                padding: 12px;
+                border-radius: 8px;
+                text-align: center;
+                margin-bottom: 20px;
+                width: 100%;
+            ">
+                <h2 style="color: white; margin: 0;">
+                    {{ emprendedorDetail.nombre }}
+                </h2>
+            </div>
+
             
-            <p><strong>Emprendimientos:</strong></p>
-            <ul>
-                <li *ngFor="let emprendimiento of emprendedorDetail.emprendimientos">
-                    {{ emprendimiento }}
+            <p style="margin-bottom: 8px;">
+                <strong style="color: rgb(34,129,82);">Pregrado:</strong> 
+                {{ emprendedorDetail.pregrado }}
+            </p>
+
+            <p style="margin-bottom: 8px;">
+                <strong style="color: rgb(34,129,82);">Género:</strong> 
+                {{ emprendedorDetail.genero }}
+            </p>
+
+            <p style="margin-bottom: 8px; color: rgb(34,129,82); font-weight: bold;">
+                Emprendimientos:
+            </p>
+
+            <ul style="margin-top: 0;">
+                <li *ngFor="let emp of emprendedorDetail.emprendimientos">
+                    {{ emp }}
                 </li>
             </ul>
 
-            <a routerLink="/emprendedores" class="btn btn-secondary mt-3">
+            
+            <a routerLink="/emprendedores"
+               style="
+                    display: inline-block;
+                    margin-top: 20px;
+                    background-color: rgb(34,129,82);
+                    color: white;
+                    padding: 8px 20px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-weight: bold;
+               ">
                 Volver al listado
             </a>
         </div>
 
     </div>
+
 </div>
