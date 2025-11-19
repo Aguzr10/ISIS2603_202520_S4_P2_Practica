@@ -19,7 +19,7 @@ export class EmprendedorService {
     return this.http.get<any>(this.baseUrllistado);
   }
 
-  getDetalle(id: number | string): Observable<any> {
+  getDetalle(): Observable<any> {
     return this.http.get<any>(this.baseUrldetalle);
   }
 
