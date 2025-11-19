@@ -1,32 +1,50 @@
-<div class="container">
-    <h1 class="mt-4">Jóvenes Emprendedores Colombianos</h1>
+<div class="container my-4">
 
-    <table class="table table-bordered mt-4">
-        <thead>
-            <tr style="--bs-table-bg: #0ae98a; --bs-table-color: white;">
-                <th scope="col">Nombre</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Género</th>
-                <th scope="col">Pregrado</th>
-            </tr>
-        </thead>
+    
+    <div class="text-center p-4 mb-4" 
+         style="background-color: #0ae98a; border-radius: 10px;">
+        <h2 class="text-white m-0">Jóvenes Emprendedores Colombianos</h2>
+    </div>
 
-        <tbody>
-            <tr *ngFor="let emprendedor of emprendedores"
-                (click)="verDetalle(emprendedor.id)"
-                style="cursor:pointer;">
-                
-                <td>{{ emprendedor.nombre }}</td>
-                
-                <td>
-                    <img [src]="emprendedor.foto_url"
-                         alt="{{ emprendedor.nombre }}"
-                         style="width: 50px; height: auto;">
-                </td>
+    
+    <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+    ">
 
-                <td>{{ emprendedor.genero }}</td>
-                <td>{{ emprendedor.pregrado }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div *ngFor="let emprendedor of emprendedores"
+             style="
+                background: white;
+                border-radius: 12px;
+                border: 3px solid #0ae98a;
+                box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+                cursor: pointer;
+                overflow: hidden;
+             "
+             (click)="verDetalle(emprendedor.id)">
+
+            
+            <img [src]="emprendedor.foto_url"
+                 alt="{{ emprendedor.nombre }}"
+                 style="
+                    width: 100%;
+                    height: 260px;
+                    object-fit: cover;
+                 ">
+
+
+            <div style="padding: 12px; min-height: 130px;">
+                <h5 style="margin: 0 0 10px;">{{ emprendedor.nombre }}</h5>
+
+                <p style="margin: 0; font-size: 0.9rem;">
+                    <strong>Género:</strong> {{ emprendedor.genero }} <br>
+                    <strong>Pregrado:</strong> {{ emprendedor.pregrado }}
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
