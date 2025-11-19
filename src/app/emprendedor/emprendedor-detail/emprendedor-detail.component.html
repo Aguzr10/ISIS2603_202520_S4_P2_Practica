@@ -1,17 +1,29 @@
 <div *ngIf="emprendedorDetail" style="margin-bottom: 2rem;">
-    <h3>{{emprendedorDetail.nombre}}</h3>
-    <div>
-        <div style="height: 300px; display: inline-block;">
-            <img [src]="emprendedorDetail.foto_url" alt="{{ emprendedorDetail.nombre }}" style="width: 80%; ">
-        </div>
+    <h3>{{ emprendedorDetail.nombre }}</h3>
+
+    <div style="display: flex; gap: 2rem; align-items: flex-start;">
         
-        <div style="width: 50%; display: inline-block;">
-            <p><strong>Pregrado: </strong> {{emprendedorDetail.pregrado}} </p>
-            <p><strong>Genero: </strong> {{emprendedorDetail.genero}} </p>
-            <p><strong>Emprendimientos: </strong></p>
-            <ul>
-                <li *ngFor="let emprendimiento of emprendedorDetail.emprendimientos">{{ emprendimiento }}</li>
-            </ul>
+        <div style="height: 300px;">
+            <img [src]="emprendedorDetail.foto_url"
+                 alt="{{ emprendedorDetail.nombre }}"
+                 style="width: 250px; height: auto; border-radius: 8px;">
         </div>
+
+        <div style="flex: 1;">
+            <p><strong>Pregrado:</strong> {{ emprendedorDetail.pregrado }}</p>
+            <p><strong>Género:</strong> {{ emprendedorDetail.genero }}</p>
+            
+            <p><strong>Emprendimientos:</strong></p>
+            <ul>
+                <li *ngFor="let emprendimiento of emprendedorDetail.emprendimientos">
+                    {{ emprendimiento }}
+                </li>
+            </ul>
+
+            <a routerLink="/emprendedores" class="btn btn-secondary mt-3">
+                ← Volver al listado
+            </a>
+        </div>
+
     </div>
 </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "parcial_practico_2_202520_dsw": {
+    "mynewapp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,10 +21,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/parcial_practico_2_202520_dsw",
-            "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -37,10 +35,9 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
-            ],
-            "scripts": []
+            ]
           },
           "configurations": {
             "production": {
@@ -61,28 +58,34 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "parcial_practico_2_202520_dsw:build:production"
+              "buildTarget": "mynewapp:build:production"
             },
             "development": {
-              "buildTarget": "parcial_practico_2_202520_dsw:build:development"
+              "buildTarget": "mynewapp:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "polyfills": [
               "zone.js",
@@ -97,14 +100,13 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "scripts": []
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "a929c1fd-42fc-4b0b-a434-f53f86047c07"
+    "analytics": false
   }
 }
