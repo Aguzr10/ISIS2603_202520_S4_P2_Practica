@@ -19,11 +19,12 @@ export class EmprendedorDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.emprendedorService.getDetalle()
-      .subscribe(data => {
-        this.emprendedorDetail = data;
-      });
-  }
+  this.emprendedorService.getDetalle(id)
+    .subscribe(data => {
+      this.emprendedorDetail = data;
+    });
+}
+
 }

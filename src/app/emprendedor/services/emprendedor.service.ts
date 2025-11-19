@@ -7,21 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class EmprendedorService {
 
-  private baseUrllistado= 'https://raw.githubusercontent.com/k-garces/ISIS2603_202520_S4_P2_Practica/refs/heads/main/json/emprendedores.json';
+  private baseListado = 
+    'https://raw.githubusercontent.com/k-garces/ISIS2603_202520_S4_P2_Practica/refs/heads/main/json/emprendedores.json';
 
-  private baseUrldetalle = 'https://raw.githubusercontent.com/k-garces/ISIS2603_202520_S4_P2_Practica/refs/heads/main/json/1/emprendedor.json';
-
+  private baseDetalle = 
+    'https://raw.githubusercontent.com/k-garces/ISIS2603_202520_S4_P2_Practica/refs/heads/main/json/';
 
   constructor(private http: HttpClient) { }
 
   
   getListado(): Observable<any> {
-    return this.http.get<any>(this.baseUrllistado);
-  }
-
-  getDetalle(): Observable<any> {
-    return this.http.get<any>(this.baseUrldetalle);
+    return this.http.get<any>(this.baseListado);
   }
 
   
+  getDetalle(id: number): Observable<any> {
+    const url = `${this.baseDetalle}/${id}/emprendedor.json`;
+    return this.http.get<any>(url);
+  }
+
 }
