@@ -1,6 +1,6 @@
 <div class="container my-4">
 
-    
+
     <div class="text-center p-4 mb-4" 
          style="background-color: #0ae98a; border-radius: 10px;">
         <h2 class="text-white m-0">Jóvenes Emprendedores Colombianos</h2>
@@ -24,7 +24,6 @@
              "
              (click)="verDetalle(emprendedor.id)">
 
-            
             <img [src]="emprendedor.foto_url"
                  alt="{{ emprendedor.nombre }}"
                  style="
@@ -32,7 +31,6 @@
                     height: 260px;
                     object-fit: cover;
                  ">
-
 
             <div style="padding: 12px; min-height: 130px;">
                 <h5 style="margin: 0 0 10px;">{{ emprendedor.nombre }}</h5>
@@ -45,6 +43,20 @@
 
         </div>
 
+    </div>
+
+    
+    <div style="
+        margin-top: 25px;
+        background-color: rgb(34,129,82);
+        color: white;
+        padding: 12px 20px;
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+    ">
+        Total de emprendedores: {{ emprendedores.length }}
     </div>
 
 </div>
