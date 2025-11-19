@@ -1,5 +1,7 @@
 ALEJANDRO GUZMÁN ROJAS
+
 a.guzmanr2@uniandes.edu.co 
+
 202410186
 
 # ParcialPractico2202520Dsw
